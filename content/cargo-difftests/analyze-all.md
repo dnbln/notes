@@ -60,7 +60,7 @@ It has a few requirements to be able to use:
 
 It then proceeds to invoke the following for each test.
 
-```Bash
+```bash
 cargo difftests collect-profiling-data --filter <test_name> --exact <extra_args>
 ```
 
@@ -81,7 +81,7 @@ Take a look over [the source code of the default runner][default-runner-source] 
 you would like some inspiration, but the gist of it is that you have to write a rust
 binary, which roughly looks like this:
 
-```Rust
+```rust
 fn rerunner(
     invocation: cargo_difftests::test_rerunner_core::TestRerunnerInvocation
 ) -> T { // T can be anything, but it has to implement std::process::Termination

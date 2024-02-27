@@ -1,6 +1,8 @@
 ---
 title: "Upsilon part I: Introduction"
 date: 2022-12-02
+tags:
+  - upsilon
 ---
 So, I've been working on a new self-hosted git server for almost a month now, and I would like to share some of the things I learned along the way, and also document the journey in the form of this section of my blog. This is the first part of a series of posts about [upsilon](https://github.com/dnbln/upsilon), my new git server.
 

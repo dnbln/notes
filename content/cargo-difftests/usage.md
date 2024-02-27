@@ -1,5 +1,8 @@
 ---
 title: Usage
+tags:
+  - cargo-difftests
+  - testing
 ---
 As is stated in the [`cargo-difftests` README](https://github.com/dnbln/cargo-difftests/blob/trunk/README.md), one could simply use `cargo-difftests` like so:
 
@@ -38,3 +41,5 @@ CARGO_DIFFTESTS_EXTRA_ARGS='--compile-index,--index-root=difftests-index-root,--
 ```
 
 `cargo difftests rerun-dirty-from-indexes` is basically an alias for `cargo difftests analyze-all-from-index --action=rerun-dirty`; more information about `analyze-all` can be found in [the analyze-all article](analyze-all.md).
+
+The `--compile-index` tells `cargo-difftests` to compile [[indexes]]. You can optionally pass `--and-clean` next to `--compile-index` to have `cargo-difftests` clean up all the profiling data other than the index after it's done running a test, to reduce the amount of required disk space.

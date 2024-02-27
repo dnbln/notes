@@ -1,6 +1,8 @@
 ---
 title: "Upsilon part II: Hallo ssh"
 date: 2023-01-20
+tags:
+  - upsilon
 ---
 In the [[part-1-introduction|previous blog post]], I've went over how to implement a simple git server over HTTP.
 

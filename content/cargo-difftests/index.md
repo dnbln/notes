@@ -1,5 +1,8 @@
 ---
 title: Cargo difftests
+tags:
+  - cargo-difftests
+  - testing
 ---
 
 > "Insanity is doing the same thing over and over again and expecting different results."

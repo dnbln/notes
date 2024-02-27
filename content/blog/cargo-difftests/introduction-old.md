@@ -1,6 +1,9 @@
 ---
 title: "Cargo difftests: old introduction post"
 date: 2023-02-12
+tags:
+  - cargo-difftests
+  - testing
 ---
 >[!tip]
 >Edit (2024-02-25): This is only here for historical reasons, and to show how much `cargo-difftests` has changed since it was first released. Although the basic commands are still almost the same, `cargo-difftests` today has some newer commands which provide an easier and nicer interface to interact with.

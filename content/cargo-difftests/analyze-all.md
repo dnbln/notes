@@ -1,5 +1,8 @@
 ---
 title: How to use with the analyze-all command
+tags:
+  - cargo-difftests
+  - testing
 ---
 
 Right now we are only checking tests individually, but by using this command

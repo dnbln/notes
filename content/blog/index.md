@@ -1,6 +1,5 @@
 ---
 title: Blog
-author: dinu
 ---
 Homepage for my blog.
 

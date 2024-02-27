@@ -1,5 +1,8 @@
 ---
 title: Algorithms
+tags:
+  - cargo-difftests
+  - testing
 ---
 There are multiple ways to tell whether a change to a file will impact the result of a test.
 
@@ -26,3 +29,7 @@ Also similarly to `git-diff-files`, this algorithm also accepts an optional `--c
 
 >[!danger]
 > **Caution:** Running tests with a dirty working tree may cause problems. As such, it is recommended to only use this on CI to tell developers quickly about the results of the most-likely-affected tests, but while actually working it would be wise to just use `fs-mtime`.
+
+
+>[!note]
+>`cargo-difftests` will error when trying to run this analysis on [[indexes]] which lack region information, which is stripped by default during index compilation. You should pass `--full-index` to the commands which compile the index, to use it with [git-diff-hunks](#git-diff-hunks).

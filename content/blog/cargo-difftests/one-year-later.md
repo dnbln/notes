@@ -1,6 +1,9 @@
 ---
 title: One year later...
 date: 2024-02-25
+tags:
+  - cargo-difftests
+  - testing
 ---
 One year ago, [[introduction-old|I introduced cargo-difftests for the first time]]. I don't believe I did the project justice the last time, writing a long post which contained a few too many commands. But I would like to change that, and to show how far it's come since.
 

@@ -1,5 +1,6 @@
 import { PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
+import { D3Config } from "./quartz/components/Graph";
 
 const explorer = Component.Explorer({
   title: "Knowledge",
@@ -17,6 +18,19 @@ export const sharedPageComponents: SharedLayout = {
   }),
 }
 
+const graphOpts: Partial<D3Config> = {
+  opacityScale: 4.75,
+  focusOnHover: true,
+  obsidianLikeFocusOnHover: true,
+  fontSize: 0.8,
+  repelForce: 2,
+}
+
+const graph = Component.Graph({
+  localGraph: graphOpts,
+  globalGraph: graphOpts,
+})
+
 // components for pages that display a single page (e.g. a single note)
 export const defaultContentPageLayout: PageLayout = {
   beforeBody: [
@@ -33,7 +47,7 @@ export const defaultContentPageLayout: PageLayout = {
     Component.DesktopOnly(explorer),
   ],
   right: [
-    Component.Graph(),
+    graph,
     Component.DesktopOnly(Component.TableOfContents()),
     Component.Backlinks(),
   ],
@@ -50,7 +64,7 @@ export const defaultListPageLayout: PageLayout = {
     Component.DesktopOnly(explorer),
   ],
   right: [
-    Component.Graph(),
+    graph,
     Component.DesktopOnly(Component.TableOfContents()),
     Component.Backlinks(),
   ],

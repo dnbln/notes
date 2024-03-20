@@ -7,6 +7,11 @@ const explorer = Component.Explorer({
   folderClickBehavior: "link",
 });
 
+const explorer = Component.Explorer({
+  title: "Knowledge",
+  folderClickBehavior: "link",
+});
+
 // components shared across all pages
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),

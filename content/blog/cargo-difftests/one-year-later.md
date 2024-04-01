@@ -4,10 +4,11 @@ date: 2024-02-25
 tags:
   - cargo-difftests
   - testing
+growth-stage: evergreen
 ---
 One year ago, [[introduction-old|I introduced cargo-difftests for the first time]]. I don't believe I did the project justice the last time, writing a long post which contained a few too many commands. But I would like to change that, and to show how far it's come since.
 
-So, without further ado, let's demonstrate what it's like to work with it now, and in what better way to do that than with an [asciinema](asciinema.org) cast?
+So, without further ado, let's demonstrate what it's like to work with it now, and in what better way to do that than with an [asciinema](https://asciinema.org) cast?
 
 <script async id="asciicast-642902" src="https://asciinema.org/a/642902.js"></script>
 

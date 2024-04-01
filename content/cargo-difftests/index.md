@@ -3,6 +3,7 @@ title: Cargo difftests
 tags:
   - cargo-difftests
   - testing
+growth-stage: seedling
 ---
 
 > "Insanity is doing the same thing over and over again and expecting different results."

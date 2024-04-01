@@ -3,6 +3,8 @@ title: Test indexes
 tags:
   - cargo-difftests
   - testing
+
+growth-stage: seedling
 ---
 Test indexes are a light-weight representation of the actual coverage data `cargo-difftests` gets from LLVM. Note that they are different from LLVM's notion of an _indexed_ `.profraw` file (e.g. a `.profdata` file).
 

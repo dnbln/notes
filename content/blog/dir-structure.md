@@ -1,6 +1,8 @@
 ---
 title: Introducing dir-structure
 date: 2023-09-27
+
+growth-stage: evergreen
 ---
 TL;DR: A simple crate to read and write directory structures.
 

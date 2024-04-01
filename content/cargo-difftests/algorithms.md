@@ -3,6 +3,8 @@ title: Algorithms
 tags:
   - cargo-difftests
   - testing
+
+growth-stage: seedling
 ---
 There are multiple ways to tell whether a change to a file will impact the result of a test.
 

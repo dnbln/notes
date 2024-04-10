@@ -3,8 +3,10 @@ title: Usage
 tags:
   - cargo-difftests
   - testing
-
 growth-stage: seedling
+date: 2024-01-01
+published: 2024-01-01
+updated: 2024-01-01
 ---
 As is stated in the [`cargo-difftests` README](https://github.com/dnbln/cargo-difftests/blob/trunk/README.md), one could simply use `cargo-difftests` like so:
 

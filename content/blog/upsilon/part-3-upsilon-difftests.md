@@ -1,10 +1,12 @@
 ---
 title: "Upsilon part III: upsilon difftests"
-date: 2023-02-08
 tags:
   - testing
   - upsilon
 growth-stage: evergreen
+date: 2023-02-08
+updated: 2023-02-08
+published: 2023-02-08
 ---
 In [[part-2-git-over-ssh|the previous blog post]], I've gone over how to setup git over ssh. In this blog post, I'm gonna do a 180 and talk about something unrelated (at least not directly) to git, but quite important to get right early in a project: testing.
 

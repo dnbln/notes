@@ -1,35 +1,27 @@
 import { classNames } from "../util/lang"
-import { getDate } from "./Date"
+import { formatDate, getDate } from "./Date"
 import { QuartzComponentConstructor, QuartzComponentProps } from "./types"
 
 function Dates({ fileData, displayClass, cfg }: QuartzComponentProps) {
-    
-    function daysAgoFormat(date: Date, locale?: string): string {
-        const currentDate = new Date();
-        const diffInDays = Math.floor((currentDate.getTime() - date.getTime()) / (1000 * 60 * 60 * 24));
-        const formatter = new Intl.RelativeTimeFormat(locale ?? "en-US", { numeric: "auto" });
-        return formatter.format(-diffInDays, "day");
-    }
-
     const { relativePath } = fileData;
     const growthStage = fileData.frontmatter?.["growth-stage"];
     const tendedOrEdited = growthStage && typeof growthStage === "string" ? "Tended" : "Edited";
 
-    const updatedDateStr = daysAgoFormat(getDate(cfg, fileData)!, cfg.locale);
+    const locale = cfg.locale ?? "en-US";
+    const updatedDateStr = formatDate(fileData.dates?.modified!, locale);
 
     const publishedDate = fileData.dates?.published;
 
     let publishedDateStr;
 
     if (publishedDate !== undefined) {
-        publishedDateStr = daysAgoFormat(publishedDate, cfg.locale)
+        publishedDateStr = formatDate(publishedDate, locale)
     }
     
     if (publishedDateStr && updatedDateStr) {
         return (
             <div class={classNames(displayClass, "dates")}>
-                <p><span>Published:</span> {publishedDateStr}</p>
-                <p><span>Last {tendedOrEdited}:</span> {updatedDateStr} (<a target="_blank" href={`https://github.com/dnbln/notes/commits/v4/content/${relativePath}`}>View History</a>)</p>
+                <p><span>Published:</span> {publishedDateStr}{publishedDateStr != updatedDateStr && (<>, <span>Last {tendedOrEdited}:</span> {updatedDateStr}</>)} (<a target="_blank" href={`https://github.com/dnbln/notes/commits/v4/content/${relativePath}`}>View History</a>)</p>
             </div>
         )
     } else {

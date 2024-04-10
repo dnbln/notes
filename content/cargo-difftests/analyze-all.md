@@ -3,8 +3,10 @@ title: How to use with the analyze-all command
 tags:
   - cargo-difftests
   - testing
-
 growth-stage: seedling
+date: 2024-01-01
+published: 2024-01-01
+updated: 2024-01-01
 ---
 
 Right now we are only checking tests individually, but by using this command you could analyze all the tests in one go. Although that sounds really nice, it's output was only ever intended to be read by machines: what it actually outputs is a huge JSON string. This section will go over how to analyze that, and / or get `cargo-difftests` to actually rerun the tests.

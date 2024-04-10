@@ -3,6 +3,8 @@ title: Narxia
 growth-stage: seedling
 tags:
   - narxia
+date: 2024-04-02
+updated: 2024-10-02
 ---
 This is the index page for the Narxia language compiler documentation.
 

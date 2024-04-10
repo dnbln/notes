@@ -3,6 +3,9 @@ title: Parsing
 growth-stage: seedling
 tags:
   - narxia
+date: 2024-04-02
+published: 2024-04-02
+updated: 2024-04-10
 ---
 
 The parser infrastructure is mainly in the `narxia-syn` crate.

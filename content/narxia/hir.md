@@ -3,6 +3,9 @@ title: HIR
 tags:
   - narxia
 growth-stage: seedling
+date: 2024-04-02
+published: 2024-04-02
+updated: 2004-04-10
 ---
 The High-level Intermediate Representation (or HIR for short) is one of the main source code representations used in the compiler. It is obtained by [[#HIR lowering|lowering]] the syntax trees ([[syntree|Syntree nodes]]) to specific HIR structures.
 

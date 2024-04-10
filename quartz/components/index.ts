@@ -21,6 +21,9 @@ import RecentNotes from "./RecentNotes"
 import Breadcrumbs from "./Breadcrumbs"
 import GrowthStage from "./GrowthStage"
 import ReadingTime from "./ReadingTime"
+import Description from "./Description"
+import Dates from "./Dates"
+import Row from "./Row"
 
 export {
   ArticleTitle,
@@ -46,4 +49,7 @@ export {
   Breadcrumbs,
   GrowthStage,
   ReadingTime,
+  Description,
+  Dates,
+  Row,
 }

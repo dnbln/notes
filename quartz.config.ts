@@ -1,5 +1,6 @@
 import { QuartzConfig } from "./quartz/cfg"
 import * as Plugin from "./quartz/plugins"
+import { Pseudocode as CommunityPseudocode } from "quartz-pseudocode"
 
 /**
  * Quartz 4.0 Configuration
@@ -11,9 +12,7 @@ const config: QuartzConfig = {
     pageTitle: "Dinu's notes",
     enableSPA: true,
     enablePopovers: true,
-    analytics: {
-      provider: "plausible",
-    },
+    analytics: null,
     locale: "en-US",
     baseUrl: "notes.dnbln.dev",
     ignorePatterns: ["private", "templates", ".obsidian", "textgenerator"],
@@ -22,9 +21,13 @@ const config: QuartzConfig = {
       fontOrigin: "googleFonts",
       cdnCaching: true,
       typography: {
-        header: "Schibsted Grotesk",
+        // header: "Schibsted Grotesk",
         body: "Source Sans Pro",
-        code: "IBM Plex Mono",
+        // body: "Sawarabi Mincho",
+        header: "Cinzel",
+        // body: "Licorice",
+        // code: "IBM Plex Mono",
+        code: "JetBrains Mono",
       },
       colors: {
         lightMode: {
@@ -56,6 +59,7 @@ const config: QuartzConfig = {
       Plugin.CreatedModifiedDate({
         priority: ["frontmatter", "filesystem"],
       }),
+      CommunityPseudocode(),
       Plugin.Latex({ renderEngine: "katex" }),
       Plugin.SyntaxHighlighting({
         theme: {

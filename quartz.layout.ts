@@ -36,11 +36,17 @@ export const defaultContentPageLayout: PageLayout = {
   beforeBody: [
     Component.Breadcrumbs(),
     Component.ArticleTitle(),
-    Component.ContentMeta(),
+    // Component.Description(),
+    // Component.ContentMeta(),
+    Component.Row({
+      hasSpacedBetweenJustification: true,
+      components: [
+        Component.Dates(),
+        Component.GrowthStage(),
+        Component.ReadingTime(),
+      ]
+    }),
     Component.TagList(),
-    Component.Spacer(),
-    Component.GrowthStage(),
-    Component.ReadingTime(),
   ],
   left: [
     Component.PageTitle(),

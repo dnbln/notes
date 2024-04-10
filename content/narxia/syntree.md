@@ -1,5 +1,6 @@
 ---
-title: "syntree: An abstract representation of syntax trees"
+title: syntree
+description: An abstract representation of syntax trees
 tags:
   - narxia
 growth-stage: seedling

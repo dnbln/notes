@@ -1,5 +1,5 @@
 ---
-title: High-level Intermediate Representation
+title: HIR
 tags:
   - narxia
 growth-stage: seedling

@@ -5,11 +5,11 @@ tags:
   - testing
 growth-stage: seedling
 ---
-
+> ```poetry
 > "Insanity is doing the same thing over and over again and expecting different results."
->
-> &#8212; Unknown author.
-
+> 
+> — Unknown author.
+> ```
 
 >[!warning]
 > Documentation currently under construction.

@@ -3,6 +3,9 @@ title: Cargo difftests blog
 tags:
   - cargo-difftests
   - testing
+published: 2023-02-12
+date: 2023-02-12
+updated: 2023-04-13
 ---
 This section of the blog contains a few blog posts which describe the evolution of [[cargo-difftests/index|cargo-difftests]].
 

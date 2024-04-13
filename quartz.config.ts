@@ -9,13 +9,13 @@ import { Pseudocode as CommunityPseudocode } from "quartz-pseudocode"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "Dinu's notes",
+    pageTitle: "dnbln.dev",
     enableSPA: true,
     enablePopovers: true,
     analytics: null,
     locale: "en-US",
-    baseUrl: "notes.dnbln.dev",
-    ignorePatterns: ["private", "templates", ".obsidian", "textgenerator"],
+    baseUrl: "dnbln.dev",
+    ignorePatterns: ["private", "templates", ".obsidian", "textgenerator", "daily-notes/template.md", ".gitignore"],
     defaultDateType: "created",
     theme: {
       fontOrigin: "googleFonts",
@@ -60,6 +60,7 @@ const config: QuartzConfig = {
         priority: ["frontmatter", "filesystem"],
       }),
       CommunityPseudocode(),
+      Plugin.Poetry(),
       Plugin.Latex({ renderEngine: "katex" }),
       Plugin.SyntaxHighlighting({
         theme: {

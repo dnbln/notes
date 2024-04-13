@@ -1,15 +1,15 @@
 ---
 title: Narxia
-growth-stage: seedling
 tags:
   - narxia
-date: 2024-04-02
-updated: 2024-10-02
+date: 2024-04-11
+published: 2024-04-11
+updated: 2024-04-11
 ---
-This is the index page for the Narxia language compiler documentation.
+Welcome to the documentation for the Narxia programming language.
 
-Below is a table of contents:
+>[!caution] 
+>Under construction.
 
-- [[parsing|Parsing]]: Documentation regarding parsing of the source code.
-- [[syntree|Syntree]]: Documentation regarding the syntax trees produced by the parser.
-- [[hir|HIR]]: Documentation regarding the High-level intermediate representation used by the compiler.
+- [[narxia/internals/index|Compiler internals]]: for developers of the compiler.
+- [[syntax]]: The complete syntax reference.

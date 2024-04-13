@@ -24,6 +24,8 @@ import ReadingTime from "./ReadingTime"
 import Description from "./Description"
 import Dates from "./Dates"
 import Row from "./Row"
+import HomepageOnly from "./HomepageOnly"
+import NonHomepageOnly from "./NonHomepageOnly"
 
 export {
   ArticleTitle,
@@ -52,4 +54,6 @@ export {
   Description,
   Dates,
   Row,
+  HomepageOnly,
+  NonHomepageOnly,
 }

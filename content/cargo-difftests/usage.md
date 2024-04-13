@@ -44,6 +44,6 @@ cargo difftests collect-profiling-data --compile-index --index-root=difftests-in
 CARGO_DIFFTESTS_EXTRA_ARGS='--compile-index,--index-root=difftests-index-root,--root=target/tmp/difftests' cargo difftests rerun-dirty-from-indexes --index-root=difftests-index-root
 ```
 
-`cargo difftests rerun-dirty-from-indexes` is basically an alias for `cargo difftests analyze-all-from-index --action=rerun-dirty`; more information about `analyze-all` can be found in [the analyze-all article](analyze-all.md).
+`cargo difftests rerun-dirty-from-indexes` is basically an alias for `cargo difftests analyze-all-from-index --action=rerun-dirty`; more information about `analyze-all` can be found in [[analyze-all|the analyze-all article]].
 
 The `--compile-index` tells `cargo-difftests` to compile [[indexes]]. You can optionally pass `--and-clean` next to `--compile-index` to have `cargo-difftests` clean up all the profiling data other than the index after it's done running a test, to reduce the amount of required disk space.

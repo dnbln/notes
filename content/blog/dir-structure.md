@@ -3,7 +3,7 @@ title: Introducing dir-structure
 growth-stage: evergreen
 date: 2023-09-27
 published: 2023-09-27
-updated: 2023-09-27
+updated: 2024-04-15
 ---
 TL;DR: A simple crate to read and write directory structures.
 
@@ -226,6 +226,50 @@ where
     pub fn perform_and_store_read(&mut self) -> Result<&T> {
         // ...
     }
+}
+```
+
+### Versioning of file contents
+
+The library also exposes the `Versioned` wrapper, which wraps a value and counts how many times it has been modified.
+
+There are 2 ways to modify a value wrapped in a `Versioned`:
+
+- Use its `Deref` and `DerefMut` implementations: using `DerefMut` increments the version.
+- Use the `edit_eq_check` associated function, which applies the given closure to the wrapped value and checks whether it has been modified during the execution of the closure; if it has, then it increments the version. It needs the wrapped type to implement `Eq` and `Clone`.
+
+An example of how one might use it:
+
+```rust
+#[test]
+fn versioned_works() {
+    #[derive(dir_structure::DirStructure)]
+    struct Dir {
+	    // VersionedString is an alias for Versioned<String>
+        #[dir_structure(path = "f1.txt")]
+        f1: VersionedString,
+    }
+
+    let d = /*directory*/ todo!();
+    std::fs::create_dir_all(&d).unwrap();
+    std::fs::write(d.join("f1.txt"), "f1").unwrap();
+
+    let dir = Dir::read_from(&d).unwrap();
+    assert_eq!(*dir.f1, "f1");
+
+    dir.write_to(&d).unwrap(); // this write doesn't actually write anything
+
+    let mut dir = Dir::read_from(&d).unwrap();
+
+    assert_eq!(*dir.f1, "f1");
+
+    *dir.f1 = "f2".to_owned(); // increments the version
+		//on next write, it will be "flushed" to the file system
+
+    dir.write_to(&d).unwrap(); // this write does write to the
+	    // file, because its contents have changed
+
+    assert_eq!(std::fs::read_to_string(d.join("f1.txt")).unwrap(), "f2");
 }
 ```
 

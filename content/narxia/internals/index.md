@@ -7,7 +7,7 @@ date: 2024-04-02
 updated: 2024-04-11
 published: 2024-04-02
 ---
-This is the index page for the Narxia language compiler documentation. This is intended for developers of the compiler, rather than users of the language. For user documentation, see [[narxia/index|index]].
+This is the index page for the Narxia language compiler documentation. This is intended for developers of the compiler, rather than users of the language. For user documentation, see [[user-docs|the user-docs]].
 
 Below is a table of contents:
 

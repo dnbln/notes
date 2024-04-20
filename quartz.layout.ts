@@ -23,6 +23,7 @@ const graphOpts: Partial<D3Config> = {
   obsidianLikeFocusOnHover: true,
   fontSize: 0.8,
   repelForce: 2,
+  removeTags: ["projects"],
 }
 
 const graph = Component.Graph({

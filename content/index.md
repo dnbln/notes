@@ -10,13 +10,14 @@ Hello!
 
 Here you can find my knowledge garden. I might use this place to store anything ranging from documentation for some of my projects, to random thoughts and everything in between, ~~*or not*~~. You may find every allotrope of Carbon here, charcoal and diamonds alike. Anyway, good luck, and I hope you can find what you came looking for; that being said, may the [[#Table of contents]] guide you[^sw-ref].
 
-[[whoami]]?
-
 ## Table of contents
 
 - [[blog/index|blog]]: My blog.
 - [[daily-notes/index|Daily notes]]: Some notes.
-- [[cargo-difftests/index|cargo-difftests]]: a selective re-test framework for Rust.
+- [[pl/index|Programming languages]]: My thoughts on various programming languages that I'm using / have used.
+- [[projects/index|Projects]]: Various projects of mine.
+- [[agdomaton/Agdomaton/index|Agdomaton]]: Agda proofs for automata, computability and complexity theory.
+- [cargo-difftests](../cargo-difftests/index.md): a selective re-test framework for Rust.
 - [[narxia/index|Narxia]]: Docs for my toy programming language, Narxia.
 
 

@@ -22,14 +22,11 @@ open import Relation.Nullary using (¬_)
 open import Axiom.Extensionality.Propositional using (Extensionality)
 open import Data.List.Relation.Binary.Subset.Propositional.Properties
 open import Relation.Unary using (Pred; _⊆_; _∈_)
-open import Data.Fin.Base
-open import Data.Vec
-open import Agda.Builtin.List
-open import Data.Bool.Base
-open import Agda.Primitive
-open import Agda.Builtin.IO using (IO)
-open import Agda.Builtin.Unit using (⊤)
-open import Agda.Builtin.String using (String)
+open import Data.Fin.Base using (Fin; zero; suc)
+open import Data.Vec using (Vec; _∷_; [])
+open import Agda.Builtin.List using (List; _∷_; [])
+open import Data.Bool.Base using (Bool; true; false; if_then_else_)
+open import Agda.Primitive using (Set)
 
 open import Agdomaton.LogicBase
 
@@ -49,20 +46,6 @@ record DFA
     q₀ : State {nq}
     F : Vec (State {nq}) nf
 
-2-length-counter-transition : (State {2} × Symbol {2}) → State {2}
-2-length-counter-transition (q zero , _) = q (suc zero)
-2-length-counter-transition (q (suc zero) , _) = q zero
-
-
-2-length-counter : DFA {2} {2} {1}
-  -- (q zero ∷ q (suc zero) ∷ [])
-  -- (σ zero ∷ σ (suc zero) ∷ [])
-2-length-counter = record
-  { q₀ = q zero
-  ; δ = 2-length-counter-transition
-  ; F = q zero ∷ []
-  }
-
 fin-eq : {n : ℕ} → (Fin n) → (Fin n) → Bool
 fin-eq zero zero = true
 fin-eq zero (suc y) = false
@@ -76,22 +59,10 @@ elem-state : {nq n : ℕ} → (State {nq}) → Vec (State {nq}) n → Bool
 elem-state x [] = false
 elem-state x (y ∷ ys) = if (state-eq x y) then true else elem-state x ys
 
+dfa-follow : {nq ns nf : ℕ} → (List (Symbol {ns})) → DFA {nq} {ns} {nf} → DFA {nq} {ns} {nf}
+dfa-follow [] dfa = dfa
+dfa-follow (s ∷ ss) dfa = dfa-follow ss (record dfa { q₀ = (DFA.δ dfa) ((DFA.q₀ dfa), s) })
+
 dfa-accepts : {nq ns nf : ℕ} → (List (Symbol {ns})) → DFA {nq} {ns} {nf} → Bool
-dfa-accepts [] dfa = elem-state (DFA.q₀ dfa) (DFA.F dfa)
-
-dfa-accepts (s ∷ ss) dfa = dfa-accepts ss (record dfa { q₀ = (DFA.δ dfa) ((DFA.q₀ dfa), s) })
-
-test-dfa : Bool
-test-dfa = dfa-accepts ((σ zero) ∷ (σ zero) ∷ []) 2-length-counter
-
-postulate putStrLn : String → IO ⊤
-{-# FOREIGN GHC import qualified Data.Text as T #-}
-{-# COMPILE GHC putStrLn = putStrLn . T.unpack #-}
-
-show : Bool → String
-show true = "true"
-show false = "false"
-
-main : IO ⊤
-main = putStrLn (show test-dfa)
+dfa-accepts ls dfa = let end-dfa = dfa-follow ls dfa in elem-state (DFA.q₀ end-dfa) (DFA.F end-dfa)
 ```

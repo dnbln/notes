@@ -15,7 +15,11 @@ const config: QuartzConfig = {
     analytics: null,
     locale: "en-US",
     baseUrl: "dnbln.dev",
-    ignorePatterns: ["private", "templates", ".obsidian", "textgenerator", "daily-notes/template.md", ".gitignore"],
+    ignorePatterns: [
+      "private", "templates", ".obsidian",
+      "agdomaton-src", "textgenerator",
+      "daily-notes/template.md", ".gitignore"
+    ],
     defaultDateType: "created",
     theme: {
       fontOrigin: "googleFonts",

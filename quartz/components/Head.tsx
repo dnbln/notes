@@ -18,6 +18,7 @@ export default (() => {
     const iconPath = joinSegments(baseDir, "static/icon.png")
     const fontStylePath = joinSegments(baseDir, "static/font/font-style.css")
     const ogImagePath = `https://${cfg.baseUrl}/static/og-image.png`
+    const agdaCss = joinSegments(baseDir, "static/Agda.css")
 
     return (
       <head>
@@ -38,6 +39,7 @@ export default (() => {
         <meta property="og:height" content="675" />
         <link rel="icon" href={iconPath} />
         <link href={fontStylePath} rel="stylesheet" type="text/css" spa-preserve />
+        <link href={agdaCss} rel="stylesheet" type="text/css" spa-preserve />
         <meta name="description" content={description} />
         <meta name="generator" content="Quartz" />
         {css.map((href) => (

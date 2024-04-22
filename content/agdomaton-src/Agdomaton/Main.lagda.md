@@ -56,7 +56,7 @@ open import Agda.Builtin.String using (String)
 
 
 test-dfa : Bool
-test-dfa = dfa-accepts ((σ zero) ∷ (σ zero) ∷ []) 2-length-counter
+test-dfa = dfa-accepts ((σ zero) ∷ (σ (suc zero)) ∷ []) 2-length-counter
 ```
 
 ## Define main

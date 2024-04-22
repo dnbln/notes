@@ -9,3 +9,6 @@ growth-stage: seedling
 ---
 
 Agda proofs for Automata, Complexity, and Computability theory.
+
+>[!todo] 
+>Also check out [Zakrok09](https://github.com/Zakrok09/)'s [`ts-automata` TypeScript package](https://github.com/Zakrok09/ts-automata).

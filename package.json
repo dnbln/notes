@@ -12,6 +12,8 @@
     "url": "https://github.com/jackyzha0/quartz.git"
   },
   "scripts": {
+    "genAgdomaton": "cd content/agdomaton-src && cp ./Agdomaton/index.md ../agdomaton/index.md && agda --html --html-highlight=auto --html-dir=../agdomaton ./Agdomaton/Main.lagda.md",
+    "genAgdomatonWin": "cd content/agdomaton-src && xcopy /s/y .\\Agdomaton\\index.md ..\\agdomaton\\index.md && agda --html --html-highlight=auto --html-dir=../agdomaton ./Agdomaton/Main.lagda.md",
     "docs": "npx quartz build --serve -d docs",
     "check": "tsc --noEmit && npx prettier . --check",
     "format": "npx prettier . --write",

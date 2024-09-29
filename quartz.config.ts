@@ -12,7 +12,7 @@ const config: QuartzConfig = {
     pageTitle: "dnbln.dev",
     enableSPA: true,
     enablePopovers: true,
-    analytics: null,
+    analytics: { provider: 'cabin' },
     locale: "en-US",
     baseUrl: "dnbln.dev",
     ignorePatterns: [

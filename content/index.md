@@ -8,7 +8,7 @@ title: Welcome to Dinu's knowledge garden
 Hello!
 ```
 
-Here you can find my knowledge garden. I might use this place to store anything ranging from documentation for some of my projects, to random thoughts and everything in between, ~~*or not*~~. You may find every allotrope of Carbon here, charcoal and diamonds alike. Anyway, good luck, and I hope you can find what you came looking for; that being said, may the [[#Table of contents]] guide you[^sw-ref].
+My name is Dinu Blanovschi, and here you can find my knowledge garden. I might use this place to store anything ranging from documentation for some of my projects, to random thoughts and everything in between, ~~*or not*~~. You may find every allotrope of Carbon here, charcoal and diamonds alike. Anyway, good luck, and I hope you can find what you came looking for; that being said, may the [[#Table of contents]] guide you[^sw-ref].
 
 ## Table of contents
 

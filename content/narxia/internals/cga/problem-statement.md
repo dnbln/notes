@@ -14,6 +14,9 @@ The idea behind this problem is, how could we optimally partition code on a HPC 
 ## Definitions
 
 We have to start off with a couple definitions first:
+
+### The basics
+
 - We define $F$ as the **set of all the functions in the system**.
 - We define $N$ as the **set of all the nodes** we want to partition the functionality to.
 - We define a **calling pair** as an ordered pair of functions $(f_1, f_2) \in F \times F$, where function $f_1$ directly calls $f_2$.
@@ -25,7 +28,7 @@ We have to start off with a couple definitions first:
 - We define $Ct (f_1, f_2, p)$ as the ***cost*** of calling $f_2$ from $f_1$, given partitioning $p$. We can further expand on this, as follows:
 
 $$
-Ct(f_1, f_2) = \begin{cases}
+Ct(f_1, f_2, p) = \begin{cases}
 	\begin{align*}
 	Cnt(f_1, f_2) \cdot ( & M_c + Trp(l_c, p(f_1), p(f_2)) + U_c + \\ & M_r + Trp(l_r, p(f_2), p(f_1)) + U_r), \text{ if } (f_1, f_2) \in B(p)
 	\end{align*} \\
@@ -35,6 +38,8 @@ $$
 
 Here, $M_c$, $U_c$, $M_r$ and $U_r$ are the marshalling and un-marshalling costs associated with the RPC, for the call and response respectively. $Trp(l, n_1, n_2)$ is the transport cost of a marshalled message of length $l$ between nodes $n_1$ and $n_2$, which has to be added twice: once for the call and once for the response.
 - We define $C(f)$ as the total number of times that function $f$ is called, during a normal, as-close-to-the-real-use scenario as possible, in a given time frame. We assume that it is possible to run instrumented binaries in a staging state, routing a statistically representative fraction of the real traffic to those instrumented binaries, and then estimating the total number of times those functions would be called from that.
+
+### Introducing distributed computing
 
 As of right now, if we were to optimise for the cost function defined above, we would find quite a simple answer: $B(p) = \emptyset$. This works out well for small systems where the load is small, so a single node can handle all the functionality of the app, but we are going for distributed systems, so we will also introduce the following 5 additional concepts:
 
@@ -84,3 +89,22 @@ $$
 
 
 
+## Heuristics
+
+It is computationally unfeasible to try to find the global minimum, so we are going to be using a few heuristics here and there:
+
+### Heuristic 1:  Source-supplied function distribution rules
+<a name="distribution_local" ></a>
+#### `#[distribution_local]`
+Certain functions can be manually annotated as `#[distribution_local]`. For example, very small and simple functions, basic utilities, and lots of functions that you would typically find in standard libraries of programming languages not intended for distributed computing. Consider for example Rust's `Option::map`. It makes no sense to try to put it on another node. What should happen instead in such cases is that it gets duplicated over all the nodes it is referenced in. This is what the `#[distribution_local]` attribute does. It tells the compiler that wherever this function is referenced, it should make a clone of it and put it on the same node as the function that is calling it.
+
+#### `#[distribution_loadbalanced]`
+Other functions, namely those that are too heavy for a single node to carry out, can be distributed across multiple nodes, which are then put behind a load balancer. Depending on how many calls the function gets, it could use either a global load balancer, or a load balancer node dedicated specifically for this function.
+
+#### The `NPin` trait
+Types implementing the `NPin` trait are types which are not allowed to cross a node boundary, and as such, all processing of values containing those types have to happen on a single node, from creation until destruction. The N in `NPin` stands for node.
+
+Examples of types include that deal with external libraries, file handles or network sockets on the specific node. The compiler treats all functions that have an `NPin` type in their signature as if they were flagged with [`#[distribution_local]`](#distribution_local).
+
+#### The `GPin` trait
+Stands for Global Pin, and this trait has a stronger requirement than [The `NPin` trait](#the-npin-trait). Namely, it requires that the values of a certain type are all processed on a single node. That is different from the `NPin` trait, which allows multiple nodes to use the values of this type, so long as they do not cross . In `GPin`'s case, all functions that deal with values of this type have to be partitioned to a **single** node.

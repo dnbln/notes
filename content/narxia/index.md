@@ -13,6 +13,7 @@ Welcome to the documentation for the Narxia programming language.
 >[!caution] 
 >Very much under construction.
 
+- [[narxia/book/index|The narxia book]]: where you should start learning the language, should you want to.
 - [[narxia/internals/index|Compiler internals]]: for developers of the compiler.
 - [[syntax]]: The complete syntax reference.
 - [[user-docs|User docs]]: User documentation.

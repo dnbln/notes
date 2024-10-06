@@ -6,16 +6,18 @@ tags:
 growth-stage: statue
 date: 2023-02-12
 published: 2023-02-12
-updated: 2024-02-25
+updated: 2024-10-04
 ---
 >[!tip]
 >Edit (2024-02-25): This is only here for historical reasons, and to show how much `cargo-difftests` has changed since it was first released. Although the basic commands are still almost the same, `cargo-difftests` today has some newer commands which provide an easier and nicer interface to interact with.
 
 A few days ago, I wrote a [[part-3-upsilon-difftests|post about upsilon-difftests]], a tool that tells you about the tests that have changed since the last commit / test run, but somewhat tailored to my [[blog/upsilon/index|upsilon]] project. Since then, I thought it would be nice to extract the core functionality into a few separate crates, and make it available for others to use. In this post, I'll give a quick introduction to the `cargo-difftests` crate, and show you how to get the most out of it.
 
-## TL;DR
+> [!abstract]
+> 
+> `cargo-difftests` is a tool that works with coverage data, and can tell you which tests have changed since the last commit / based on file system mtimes.
 
-`cargo-difftests` works with coverage data, and can tell you which tests have changed since the last commit / based on file system mtimes. In the next section, I will go over how it achieves this, but if you just want the guide to set it up, feel free to skip to [the walkthrough section](#walkthrough).
+In the next section, I will go over how it achieves this, but if you just want the guide to set it up, feel free to skip to [the walkthrough section](#walkthrough).
 
 ## How does it work?
 

@@ -18,7 +18,7 @@ My name is Dinu Blanovschi, and here you can find my knowledge garden. I might u
 - [[projects/index|Projects]]: Various projects of mine.
 - [[agdomaton/index|Agdomaton]]: Agda proofs for automata, computability and complexity theory.
 - [cargo-difftests](../cargo-difftests/index.md): a selective re-test framework for Rust.
-- [[narxia/index|Narxia]]: Docs for my toy programming language, Narxia.
+- [[/narxia/index|Narxia]]: Docs for my toy programming language, Narxia.
 
 
 Image credit[^img-credit].

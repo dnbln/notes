@@ -6,6 +6,7 @@ date: 2024-04-20
 published: 2024-04-20
 updated: 2024-04-20
 growth-stage: seedling
+showPagesInFolder: false
 ---
 Here follows a list of some of my open-source projects, in a backwards-chronological-ish order:
 

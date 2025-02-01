@@ -7,6 +7,7 @@ import { classNames } from "../util/lang"
 type CrumbData = {
   displayName: string
   path: string
+  public: boolean
 }
 
 interface BreadcrumbOptions {
@@ -30,6 +31,8 @@ interface BreadcrumbOptions {
    * Whether to display the current page in the breadcrumbs.
    */
   showCurrentPage: boolean
+
+  removePublicOnPrivate: boolean
 }
 
 const defaultOptions: BreadcrumbOptions = {
@@ -38,12 +41,14 @@ const defaultOptions: BreadcrumbOptions = {
   resolveFrontmatterTitle: true,
   hideOnRoot: true,
   showCurrentPage: true,
+  removePublicOnPrivate: true,
 }
 
-function formatCrumb(displayName: string, baseSlug: FullSlug, currentSlug: SimpleSlug): CrumbData {
+function formatCrumb(displayName: string, baseSlug: FullSlug, currentSlug: SimpleSlug, publicB: boolean): CrumbData {
   return {
     displayName: displayName.replaceAll("-", " "),
     path: resolveRelative(baseSlug, currentSlug),
+    public: publicB,
   }
 }
 
@@ -64,9 +69,14 @@ export default ((opts?: Partial<BreadcrumbOptions>) => {
       return <></>
     }
 
+    let toRemovePublic = false;
+    if (fileData.frontmatter?.private && options.removePublicOnPrivate) {
+      toRemovePublic = true;
+    }
+
     // Format entry for root element
-    const firstEntry = formatCrumb(options.rootName, fileData.slug!, "/" as SimpleSlug)
-    const crumbs: CrumbData[] = [firstEntry]
+    const firstEntry = formatCrumb(options.rootName, fileData.slug!, "/" as SimpleSlug, fileData.frontmatter?.private as boolean)
+    let crumbs: CrumbData[] = [firstEntry]
 
     if (!folderIndex && options.resolveFrontmatterTitle) {
       folderIndex = new Map()
@@ -109,6 +119,7 @@ export default ((opts?: Partial<BreadcrumbOptions>) => {
           curPathSegment,
           fileData.slug!,
           (currentPath + (includeTrailingSlash ? "/" : "")) as SimpleSlug,
+          fileData.frontmatter?.private as boolean,
         )
         crumbs.push(crumb)
       }
@@ -118,8 +129,13 @@ export default ((opts?: Partial<BreadcrumbOptions>) => {
         crumbs.push({
           displayName: fileData.frontmatter!.title,
           path: "",
+          public: !(fileData.frontmatter?.private ?? false),
         })
       }
+    }
+
+    if (toRemovePublic) {
+      crumbs = crumbs.filter((crumb) => crumb.public !== false);
     }
 
     return (

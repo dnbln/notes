@@ -12,6 +12,8 @@ function Dates({ fileData, displayClass, cfg }: QuartzComponentProps) {
 
     const publishedDate = fileData.dates?.published;
 
+    const showHistoryLink = fileData.frontmatter?.private !== true;
+
     let publishedDateStr;
 
     if (publishedDate !== undefined) {
@@ -21,7 +23,7 @@ function Dates({ fileData, displayClass, cfg }: QuartzComponentProps) {
     if (publishedDateStr && updatedDateStr) {
         return (
             <div class={classNames(displayClass, "dates")}>
-                <p><span>Published:</span> {publishedDateStr}{publishedDateStr != updatedDateStr && (<>, <span>Last {tendedOrEdited}:</span> {updatedDateStr}</>)} (<a target="_blank" href={`https://github.com/dnbln/notes/commits/v4/content/${relativePath}`}>View History</a>)</p>
+                <p><span>Published:</span> {publishedDateStr}{publishedDateStr != updatedDateStr && (<>, <span>Last {tendedOrEdited}:</span> {updatedDateStr}</>)} {showHistoryLink && <>(<a target="_blank" href={`https://github.com/dnbln/notes/commits/v4/content/${relativePath}`}>View History</a>)</>}</p>
             </div>
         )
     } else {

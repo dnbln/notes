@@ -24,7 +24,7 @@ export default ((opts?: Partial<FolderContentOptions>) => {
 
   const FolderContent: QuartzComponent = (props: QuartzComponentProps) => {
     const { tree, fileData, allFiles, cfg } = props
-    const showPagesInFolder = (fileData.frontmatter?.showPagesInFolder ?? "true") === "true"
+    const showPagesInFolder = (fileData.frontmatter?.showPagesInFolder ?? true)
     const folderSlug = stripSlashes(simplifySlug(fileData.slug!))
     const allPagesInFolder = allFiles.filter((file) => {
       const fileSlug = stripSlashes(simplifySlug(file.slug!))

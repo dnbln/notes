@@ -1,11 +1,11 @@
 ---
-title: Narxia
 tags:
   - narxia
   - plt
 date: 2024-04-11
 published: 2024-04-11
 updated: 2024-04-11
+title: Narxia
 showPagesInFolder: false
 ---
 Welcome to the documentation for the Narxia programming language.

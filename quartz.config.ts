@@ -20,7 +20,7 @@ const config: QuartzConfig = {
       "agdomaton-src", "textgenerator",
       "daily-notes/template.md", ".gitignore"
     ],
-    defaultDateType: "created",
+    defaultDateType: "published",
     theme: {
       fontOrigin: "googleFonts",
       cdnCaching: true,

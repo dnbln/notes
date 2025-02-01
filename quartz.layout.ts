@@ -26,6 +26,11 @@ const graphOpts: Partial<D3Config> = {
   removeTags: ["projects"],
 }
 
+const graphPrivate = Component.Graph({
+  localGraph: { ...graphOpts, depth: 1 },
+  globalGraph: { ...graphOpts, depth: 3 },
+})
+
 const graph = Component.Graph({
   localGraph: { ...graphOpts, depth: 1 },
   globalGraph: { ...graphOpts, depth: -1 },
@@ -34,8 +39,8 @@ const graph = Component.Graph({
 // components for pages that display a single page (e.g. a single note)
 export const defaultContentPageLayout: PageLayout = {
   beforeBody: [
-    Component.NonHomepageOnly(
-      Component.Breadcrumbs()),
+    Component.NoPrivateOnly(Component.NonHomepageOnly(
+      Component.Breadcrumbs())),
     Component.NonHomepageOnly(
       Component.ArticleTitle()),
     // Component.Description(),
@@ -52,20 +57,21 @@ export const defaultContentPageLayout: PageLayout = {
     Component.TagList(),
   ],
   left: [
-    Component.PageTitle(),
+    Component.NoPrivateOnly(Component.PageTitle()),
     Component.MobileOnly(Component.Spacer()),
-    Component.Search(),
+    Component.NoPrivateOnly(Component.Search()),
     Component.Darkmode(),
-    Component.HomepageOnly(
-      Component.DesktopOnly(
-        Component.RecentNotes({
-          title: "Recent Writing",
-          limit: 2,
-          filter: (f) =>
-            f.slug!.startsWith("blog/") && f.slug! !== "blog/index" && !f.frontmatter?.noindex,
-          linkToMore: "blog/" as SimpleSlug,
-        }),
-      )),
+    Component.NoPrivateOnly(
+      Component.HomepageOnly(
+        Component.DesktopOnly(
+          Component.RecentNotes({
+            title: "Recent Writing",
+            limit: 2,
+            filter: (f) =>
+              f.slug!.startsWith("blog/") && f.slug! !== "blog/index" && !f.frontmatter?.noindex,
+            linkToMore: "blog/" as SimpleSlug,
+          }),
+        ))),
     Component.HomepageOnly(
       Component.DesktopOnly(
         Component.RecentNotes({
@@ -79,7 +85,9 @@ export const defaultContentPageLayout: PageLayout = {
       Component.DesktopOnly(Component.TableOfContents())),
   ],
   right: [
-    graph,
+    Component.PrivateOnly(graphPrivate),
+    Component.NoPrivateOnly(graph),
+
     Component.Backlinks(),
   ],
 }
@@ -87,18 +95,20 @@ export const defaultContentPageLayout: PageLayout = {
 // components for pages that display lists of pages  (e.g. tags or folders)
 export const defaultListPageLayout: PageLayout = {
   beforeBody: [
-    Component.Breadcrumbs(), Component.ArticleTitle(), Component.ContentMeta(),
+    Component.NoPrivateOnly(Component.Breadcrumbs()), Component.ArticleTitle(), Component.ContentMeta(),
     Component.GrowthStage(),
   ],
   left: [
-    Component.PageTitle(),
+    Component.NoPrivateOnly(Component.PageTitle()),
     Component.MobileOnly(Component.Spacer()),
-    Component.Search(),
+    Component.NoPrivateOnly(Component.Search()),
     Component.Darkmode(),
     Component.DesktopOnly(Component.TableOfContents()),
   ],
   right: [
-    graph,
+    Component.PrivateOnly(graphPrivate),
+    Component.NoPrivateOnly(graph),
+
     Component.DesktopOnly(Component.TableOfContents()),
     Component.Backlinks(),
   ],

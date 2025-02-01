@@ -26,6 +26,8 @@ import Dates from "./Dates"
 import Row from "./Row"
 import HomepageOnly from "./HomepageOnly"
 import NonHomepageOnly from "./NonHomepageOnly"
+import NoPrivateOnly from "./NoPrivateOnly"
+import PrivateOnly from "./PrivateOnly"
 
 export {
   ArticleTitle,
@@ -56,4 +58,6 @@ export {
   Row,
   HomepageOnly,
   NonHomepageOnly,
+  NoPrivateOnly,
+  PrivateOnly,
 }

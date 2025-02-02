@@ -4,7 +4,7 @@ date: 2025-01-23
 published: 2025-02-02
 updated: 2025-02-02
 title: "BK7083: Computational Design Simulations"
-showPagesInFolder: true
+showPagesInFolder: false
 copyright: Dinu Blanovschi, Bas Star, Kilian Berndt, Sheila Kuijper
 growth-stage: evergreen
 private: true
@@ -21,7 +21,7 @@ Procedural Design of UNITY the building that unites Schieblock in Rotterdam. 
 
 This project is part of the course Computational Design Simulations of the minor Spatial Computing in Architectural Design. This website is an overview of all the design choices that led to the final model of our building. The process has four phases which will be described in detail: [[overview|(1) initialization]], [[massing|(2) massing]], [[modeling|(3) modelling]], and [[materialization|(4) materialization]] which resulted in our final design.
 
-  
+[Here is a link to our GitHub repository](https://github.com/dnbln/CDS).
 
 Student creators
 

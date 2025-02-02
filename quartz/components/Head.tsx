@@ -154,6 +154,11 @@ export default (() => {
     const socialUrl =
       fileData.slug === "404" ? url.toString() : joinSegments(url.toString(), fileData.slug!)
 
+
+    // Custom
+    const fontStylePath = joinSegments(baseDir, "static/font/font-style.css")
+    const agdaCss = joinSegments(baseDir, "static/Agda.css")
+
     return (
       <head>
         <title>{title}</title>
@@ -195,6 +200,8 @@ export default (() => {
           </>
         )}
         <link rel="icon" href={iconPath} />
+        <link href={fontStylePath} rel="stylesheet" type="text/css" spa-preserve />
+        <link href={agdaCss} rel="stylesheet" type="text/css" spa-preserve />
         <meta name="description" content={description} />
         <meta name="generator" content="Quartz" />
         {css.map((resource) => CSSResourceToStyleElement(resource, true))}

@@ -21,6 +21,17 @@ import RecentNotes from "./RecentNotes"
 import Breadcrumbs from "./Breadcrumbs"
 import Comments from "./Comments"
 
+// own
+import Row from "./Row"
+import Dates from "./Dates"
+import GrowthStage from "./GrowthStage"
+import ReadingTime from "./ReadingTime"
+import NoPrivateOnly from "./NoPrivateOnly"
+import HomepageOnly from "./HomepageOnly"
+import NonHomepageOnly from "./NonHomepageOnly"
+import PrivateOnly from "./PrivateOnly"
+import OwnFooter from "./OwnFooter"
+
 export {
   ArticleTitle,
   Content,
@@ -44,4 +55,15 @@ export {
   NotFound,
   Breadcrumbs,
   Comments,
+
+  // own
+  Row,
+  Dates,
+  GrowthStage,
+  ReadingTime,
+  NoPrivateOnly,
+  HomepageOnly,
+  NonHomepageOnly,
+  PrivateOnly,
+  OwnFooter,
 }

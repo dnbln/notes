@@ -23,7 +23,7 @@ const config: QuartzConfig = {
       "daily-notes/template.md", ".gitignore"
     ],
     defaultDateType: "published",
-    generateSocialImages: false,
+    // generateSocialImages: false,
     theme: {
       fontOrigin: "googleFonts",
       cdnCaching: true,

@@ -31,6 +31,10 @@ export default (() => {
     const socialUrl =
       fileData.slug === "404" ? url.toString() : joinSegments(url.toString(), fileData.slug!)
 
+    const usesCustomOgImage = ctx.cfg.plugins.emitters.some(
+      (e) => e.name === CustomOgImagesEmitterName,
+    )
+    const ogImageDefaultPath = `https://${cfg.baseUrl}/static/og-image.png`
 
     // Custom
     const fontStylePath = joinSegments(baseDir, "static/font/font-style.css")

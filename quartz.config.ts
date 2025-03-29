@@ -14,7 +14,7 @@ const config: QuartzConfig = {
     pageTitleSuffix: "",
     enableSPA: true,
     enablePopovers: true,
-    analytics: null,
+    analytics: { provider: 'umami', host: 'https://cloud.umami.is', websiteId: 'd55df0a2-7f8f-4d97-acd3-37fda49569c7' },
     locale: "en-US",
     baseUrl: "dnbln.dev",
     ignorePatterns: [

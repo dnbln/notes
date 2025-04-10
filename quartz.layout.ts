@@ -67,8 +67,10 @@ export const defaultContentPageLayout: PageLayout = {
           Component.RecentNotes({
             title: "Recent Writing",
             limit: 2,
-            filter: (f) =>
-              f.slug!.startsWith("blog/") && f.slug! !== "blog/index" && !f.frontmatter?.noindex,
+            filter: (f) => {
+              console.log(f.slug)
+              return f.slug!.startsWith("blog/") && !f.slug!.endsWith("/index") && !f.frontmatter?.noindex
+            },
             linkToMore: "blog/" as SimpleSlug,
           }),
         ))),

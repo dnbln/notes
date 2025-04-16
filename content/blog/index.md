@@ -10,3 +10,4 @@ Homepage for my blog.
 - [[blog/cargo-difftests/index|cargo-difftests]]: section of my blog dedicated to the evolution of [[cargo-difftests/index|cargo-difftests]].
 - [[blog/dir-structure|dir-structure]]: a post introducing `dir-structure`, a crate to model file system directories as simple Rust structs.
 - [[blog/reading/index|reading]]: blogging and reviewing books I've read.
+- [[blog/walks/index|walks]]: photo dumps from my walks.

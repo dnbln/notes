@@ -7,7 +7,22 @@ import { SimpleSlug } from "./quartz/util/path"
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
-  afterBody: [],
+  afterBody: [
+    Component.NoPrivateOnly(Component.Comments({
+      provider: "giscus",
+      options: {
+        // from data-repo
+        repo: 'dnbln/notes',
+        // from data-repo-id
+        repoId: 'R_kgDOLXjHig',
+        // from data-category
+        category: 'Posts',
+        // from data-category-id
+        categoryId: 'DIC_kwDOLXjHis4CpOt-',
+        mapping: 'og:title',
+      },
+    }))
+  ],
   footer: Component.OwnFooter({
     links: {
       'Mail me': "mailto:dinu@dnbln.dev",

@@ -19,7 +19,7 @@ export const sharedPageComponents: SharedLayout = {
         category: 'Posts',
         // from data-category-id
         categoryId: 'DIC_kwDOLXjHis4CpOt-',
-        mapping: 'og:title',
+        mapping: 'pathname',
       },
     }))
   ],

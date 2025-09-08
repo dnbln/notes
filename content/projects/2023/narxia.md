@@ -14,4 +14,4 @@ growth-stage: seedling
 Languages used:
 - [[rust|Rust]]
 
-See also: [[../../narxia/index|the narxia documentation]].
+See also: [the narxia documentation](https://nrx.dnbln.dev/).

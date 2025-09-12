@@ -2,7 +2,7 @@
 title: Looking back on 10 years of programming
 date: 2025-09-08
 published: 2025-09-08
-updated: 2025-09-08
+updated: 2025-09-12
 growth-stage: seedling
 ---
 With 2026 around the corner, it's soon going to be 10 years since I wrote my very first line of code, so I think
@@ -90,7 +90,7 @@ After finishing an interpreter for that DSL, I decided to try to make a _compile
 
 It even had an assembly optimizer, which, because I didn't know how stuff was done in real optimizers, was just looking at assembly instructions, aggressively removing unnecessary ones, trying to move memory values into registers as much as possible; part of that is what LLVM and GCC also do, but I didn't know about their existence back then.
 
-I've dabbled in a few more projects in high school, including:
+I've contributed to a few more projects in high school, including:
 - a C/C++ OpenGL / Vulkan game engine.[^vertexengine]
 - a full C/C++ meta build system.[^leafbuild]
 - a few other Rust projects.[^robespierre][^mdbook-snips][^lalrdoc][^ascii-image]
